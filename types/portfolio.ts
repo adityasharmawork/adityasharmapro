@@ -46,7 +46,7 @@ export interface Achievement {
 export interface Socials {
   github: string;
   linkedin: string;
-  twitter: string;
+  x: string;
   resume: string;
 }
 

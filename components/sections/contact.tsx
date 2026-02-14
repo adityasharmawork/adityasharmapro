@@ -31,7 +31,7 @@ export function Contact({ personal, socials }: ContactProps) {
   const socialLinks = [
     { icon: Github, label: "GitHub", href: socials.github },
     { icon: Linkedin, label: "LinkedIn", href: socials.linkedin },
-    { icon: Twitter, label: "Twitter", href: socials.twitter },
+    { icon: Twitter, label: "X", href: socials.x },
     { icon: FileText, label: "Resume", href: socials.resume },
   ];
 
