@@ -1,0 +1,256 @@
+{
+  "personal": {
+    "name": "Aditya Sharma",
+    "role": "Software Engineer",
+    "tagline": "One of the Finest TypeScript / GoLang Developers you can find in the planet.",
+    "location": "India",
+    "email": "developeradityasharma@gmail.com",
+    "availability": "Open to opportunities"
+  },
+  "about": {
+    "bio": "I am a Software Engineer focused on Building Software that Scales for Millions. My background spans full-stack development with a focus on Safety, Scalability and Performance at Scale.",
+    "skills": [
+      "TypeScript",
+      "GoLang",
+      "Next.js",
+      "Cloudflare",
+      "System Design",
+      "MERN",
+      "PostgreSQL"
+    ]
+  },
+  "work": [
+    {
+      "company": "InboxKit",
+      "role": "Full Stack Developer",
+      "date": "December 2025 – Present",
+      "location": "Dubai, Saudi Arab Emirates (Remote)",
+      "description": "Engineering enterprise-scale infrastructure handling 100K+ users using TypeScript and GoLang, across 30+ microservices.",
+      "highlights": [
+        "Architected domain management systems handling huge scale",
+        "Developed scalable GoLang systems and workers infrastructure serving 100K+ users with 99.95% uptime",
+        "Engineered Redis message queuing architecture handling backend services workloads across 30+ microservices at enterprise scale",
+        "Built multiple production features from scratch, accelerating growth and product cycle",
+        "Worked heavily with Domains, Mailboxes, DNS and Cloudflare services",
+        "Designed fault-tolerant job processors managing thousands of concurrent tasks with 99.8% success rate",
+        "Established multiple automated workflows, eliminating downtime and directly improving user experience and product reliability"
+      ]
+    },
+    {
+      "company": "Enrich Labs",
+      "role": "Full Stack Developer",
+      "date": "December 2025 – Present",
+      "location": "Dubai, Saudi Arab Emirates (Remote)",
+      "description": "Building InboxKit.",
+      "highlights": [
+        "Designed and shipped core product features end-to-end",
+        "Collaborated with cross-functional teams across multiple time zones"
+      ]
+    },
+    {
+      "company": "CodeBrahma Technologies",
+      "role": "Software Engineer",
+      "date": "June 2025 – October 2025",
+      "location": "San Francisco (Remote)",
+      "description": "Architecting serverless applications with Cloudflare Workers and Durable Objects.",
+      "highlights": [
+        "Architected serverless applications using CloudFlare Workers, optimizing edge computing performance and reducing latency across global distributed systems",
+        "Mastered Durable Objects implementation for stateful serverless computing, enabling real-time data persistence and seamless user session management at scale",
+        "Engineered robust RPC function calls for microservices communication, streamlining inter-service data exchange and improving system reliability",
+        "Delivered a comprehensive ReactJS application featuring complex TypeScript schemas and responsive Tailwind CSS design, resulting in faster development cycles and type-safe code architecture",
+        "Integrated Zustand state management for persistent session handling, enhancing user experience through seamless data retention across browser sessions",
+        "Built systems leveraging enterprise-grade AI-powered systems processing high-volume stream of responses",
+        "Implemented Tanstack Query (React Query) with industry-standard caching strategies, reducing API response times and optimizing data fetching patterns"
+      ]
+    },
+    {
+      "company": "Site Guru",
+      "role": "Full Stack Developer",
+      "date": "April 2025 – May 2025",
+      "location": "India (Remote)",
+      "description": "Optimized full-stack scalability, achieving 99.9% uptime and increasing application response times by 40%.",
+      "highlights": [
+        "Leveraged modern development practices to optimize codebase scalability, resulting in seamless user experiences across growing platform traffic",
+        "Architected and delivered robust full-stack solutions across multiple client projects, collaborating with senior developers to build scalable systems that exceeded client expectations",
+        "Engineered end-to-end applications utilizing modern development frameworks and best practices, contributing to streamlined project delivery cycles and enhanced reliability for diverse client requirements",
+        "Accelerated development workflows through strategic implementation of full-stack technologies, gaining expertise in complete software lifecycle management while supporting high-priority client deliverables"
+      ]
+    },
+    {
+      "company": "Gradeup Assignments",
+      "role": "Web Developer",
+      "date": "April 2025 – May 2025",
+      "location": "India (Remote)",
+      "description": "Engineered responsive frontend solutions that reduced bounce rates by 35%.",
+      "highlights": [
+        "Engineered responsive, visually striking websites utilizing cutting-edge frontend frameworks that delivered exceptional user experiences across devices",
+        "Implemented advanced UI/UX principles resulting in a 25% increase in client engagement metrics and consistently positive stakeholder feedback"
+      ]
+    }
+  ],
+  "openSource": [
+    {
+      "project": "Kubernetes",
+      "role": "Contributor",
+      "link": "https://github.com/kubernetes/kubernetes",
+      "description": "Contributing to the world's most popular container orchestration platform.",
+      "highlights": [
+        "Identified and resolved goroutine leak in client-go shared informer",
+        "Removed deprecated PodStatusResult type across the codebase",
+        "Collaborated with maintainers through rigorous code review cycles"
+      ]
+    },
+    {
+      "project": "Lingo.dev",
+      "role": "Contributor",
+      "link": "https://github.com/lingo-dev/lingo",
+      "description": "Contributing to an open-source i18n toolkit for modern web applications.",
+      "highlights": [
+        "Fixed critical build conflicts with Turbopack parallel compilation",
+        "Improved developer experience for Next.js integration workflows"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "title": "Replix",
+      "description": "A collaborative cloud IDE supporting 10+ languages with execution tracking. Features AI-powered automated judging for competitive programming and personalized dashboards.",
+      "tags": [
+        "Next.js",
+        "Convex",
+        "Clerk",
+        "Zustand",
+        "Framer Motion"
+      ],
+      "link": "https://dub.sh/replix",
+      "featured": true
+    },
+    {
+      "title": "AutoInfer",
+      "description": "An NPM CLI tool that instantly generates TypeScript interfaces and JSON schemas from multi-source ingestion (API, CSV, SQL), cutting development overhead by 80%.",
+      "tags": [
+        "TypeScript",
+        "Node.js",
+        "CLI",
+        "NPM"
+      ],
+      "link": "https://dub.sh/autoinfer",
+      "featured": true
+    },
+    {
+      "title": "AlgoSprint",
+      "description": "A comprehensive DSA/CP contest tracker integrating LeetCode and Codeforces. Features resource hubs and integrated video solutions, serving 500+ active users.",
+      "tags": [
+        "MERN Stack",
+        "Redis",
+        "Tailwind CSS"
+      ],
+      "link": "https://dub.sh/algosprint",
+      "featured": false
+    },
+    {
+      "title": "Amber",
+      "description": "A comprehensive DSA/CP contest tracker integrating LeetCode and Codeforces. Features resource hubs and integrated video solutions, serving 500+ active users.",
+      "tags": [
+        "MERN Stack",
+        "Redis",
+        "Tailwind CSS"
+      ],
+      "link": "https://dub.sh/algosprint",
+      "featured": false
+    },
+    {
+      "title": "DevHunt",
+      "description": "A comprehensive DSA/CP contest tracker integrating LeetCode and Codeforces. Features resource hubs and integrated video solutions, serving 500+ active users.",
+      "tags": [
+        "MERN Stack",
+        "Redis",
+        "Tailwind CSS"
+      ],
+      "link": "https://dub.sh/algosprint",
+      "featured": false
+    },
+    {
+      "title": "ShopOne",
+      "description": "A comprehensive DSA/CP contest tracker integrating LeetCode and Codeforces. Features resource hubs and integrated video solutions, serving 500+ active users.",
+      "tags": [
+        "MERN Stack",
+        "Redis",
+        "Tailwind CSS"
+      ],
+      "link": "https://dub.sh/algosprint",
+      "featured": false
+    },
+    {
+      "title": "GitFM",
+      "description": "A comprehensive DSA/CP contest tracker integrating LeetCode and Codeforces. Features resource hubs and integrated video solutions, serving 500+ active users.",
+      "tags": [
+        "MERN Stack",
+        "Redis",
+        "Tailwind CSS"
+      ],
+      "link": "https://dub.sh/algosprint",
+      "featured": false
+    },
+    {
+      "title": "Learnyst AI",
+      "description": "A comprehensive DSA/CP contest tracker integrating LeetCode and Codeforces. Features resource hubs and integrated video solutions, serving 500+ active users.",
+      "tags": [
+        "MERN Stack",
+        "Redis",
+        "Tailwind CSS"
+      ],
+      "link": "https://dub.sh/algosprint",
+      "featured": false
+    },
+    {
+      "title": "GoTunnel",
+      "description": "A comprehensive DSA/CP contest tracker integrating LeetCode and Codeforces. Features resource hubs and integrated video solutions, serving 500+ active users.",
+      "tags": [
+        "MERN Stack",
+        "Redis",
+        "Tailwind CSS"
+      ],
+      "link": "https://dub.sh/algosprint",
+      "featured": false
+    }
+  ],
+  "achievements": [
+    {
+      "title": "Institutional Winner",
+      "organization": "Smart India Hackathon",
+      "year": "2025"
+    },
+    {
+      "title": "National Hackathon Winner",
+      "organization": "Unstop",
+      "year": "2025"
+    },
+    {
+      "title": "Lead Chapter Organizer",
+      "organization": "Google Developer Groups (GDG) on Campus Asansol Engineering College",
+      "year": "2026"
+    },
+    {
+      "title": "Letter of Recommendation",
+      "organization": "India Institute of Technology Delhi (IIT Delhi)",
+      "year": "2024"
+    },
+    {
+      "title": "Letter of Recommendation",
+      "organization": "India Institute of Technology Guwahati (IIT Guwahati)",
+      "year": "2024"
+    },
+    {
+      "title": "HPAIR Delegate",
+      "organization": "Harvard Project for Asian & International Relations",
+      "year": "2024"
+    }
+  ],
+  "socials": {
+    "github": "https://dub.sh/adityagithub",
+    "linkedin": "https://dub.sh/adityalinkedin",
+    "x": "https://dub.sh/adityax",
+    "resume": "https://dub.sh/adityaresume"
+  }
+}
