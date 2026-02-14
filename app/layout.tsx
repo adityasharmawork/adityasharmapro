@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Aditya Sharma | Software Engineer",
   description:
-    "Building scalable serverless systems and high-performance web architecture.",
+    "One of the Finest TypeScript / GoLang Developers you can find in the planet.",
 };
 
 export default function RootLayout({

@@ -213,6 +213,17 @@
       ],
       "link": "https://dub.sh/algosprint",
       "featured": false
+    },
+    {
+      "title": "GoShorty",
+      "description": "A comprehensive DSA/CP contest tracker integrating LeetCode and Codeforces. Features resource hubs and integrated video solutions, serving 500+ active users.",
+      "tags": [
+        "MERN Stack",
+        "Redis",
+        "Tailwind CSS"
+      ],
+      "link": "https://dub.sh/algosprint",
+      "featured": false
     }
   ],
   "achievements": [
