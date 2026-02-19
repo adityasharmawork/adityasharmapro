@@ -113,6 +113,19 @@
   ],
   "projects": [
     {
+      "title": "Transia",
+      "description": "A MultiLingual Website Translation Platform with Built In Advanced Analtics Features.",
+      "tags": [
+        "Next.js",
+        "MongoDB",
+        "Clerk",
+        "Stripe",
+        "Framer Motion"
+      ],
+      "link": "https://transia-web.vercel.app",
+      "featured": true
+    },
+    {
       "title": "Replix",
       "description": "A collaborative cloud IDE supporting 10+ languages with execution tracking. Features AI-powered automated judging for competitive programming and personalized dashboards.",
       "tags": [
