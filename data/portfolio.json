@@ -111,6 +111,28 @@
       ]
     }
   ],
+  "freelancing": [
+    {
+      "project": "Rising High",
+      "role": "Backend Developer",
+      "date": "January 2024 - March 2024",
+      "location": "Remote",
+      "description": "Developed a scalable backend for a high-traffic platform using Node.js and PostgreSQL.",
+      "highlights": [
+        "Designed and implemented RESTful APIs for product management, optimized for high load"
+      ]
+    },
+    {
+      "project": "Stealth Startup",
+      "role": "Frontend Developer",
+      "date": "August 2023 - October 2023",
+      "location": "Remote",
+      "description": "Built an intuitive dashboard.",
+      "highlights": [
+        "Developed responsive UI components using React and Material-UI"
+      ]
+    }
+  ],
   "projects": [
     {
       "title": "Transia",

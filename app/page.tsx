@@ -4,6 +4,7 @@ import { Hero } from "@/components/sections/hero";
 import { About } from "@/components/sections/about";
 import { Work } from "@/components/sections/work";
 import { OpenSource } from "@/components/sections/open-source";
+// import { Freelancing } from "@/components/sections/freelancing";
 import { Projects } from "@/components/sections/projects";
 import { Achievements } from "@/components/sections/achievements";
 import { Contact } from "@/components/sections/contact";
@@ -17,6 +18,7 @@ export default function Home() {
       <About about={data.about} />
       <Work work={data.work} />
       <OpenSource openSource={data.openSource} />
+      {/* <Freelancing freelancing={data.freelancing} /> */}
       <Projects projects={data.projects} />
       <Achievements achievements={data.achievements} />
       <Contact personal={data.personal} socials={data.socials} />

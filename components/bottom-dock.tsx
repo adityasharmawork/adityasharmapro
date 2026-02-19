@@ -7,7 +7,7 @@ import {
   useSpring,
   type MotionValue,
 } from "framer-motion";
-import { Home, User, Briefcase, GitBranch, FolderOpen, Mail } from "lucide-react";
+import { Home, User, Briefcase, GitBranch, FolderOpen, Mail, Zap } from "lucide-react";
 import { useRef } from "react";
 
 const DOCK_ITEMS = [
@@ -15,6 +15,7 @@ const DOCK_ITEMS = [
   { icon: User, label: "About", href: "#about" },
   { icon: Briefcase, label: "Work", href: "#work" },
   { icon: GitBranch, label: "Open Source", href: "#open-source" },
+  // { icon: Zap, label: "Freelance", href: "#freelance" },
   { icon: FolderOpen, label: "Projects", href: "#projects" },
   { icon: Mail, label: "Contact", href: "#contact" },
 ];

@@ -21,6 +21,16 @@ export interface WorkEntry {
   highlights?: string[];
 }
 
+// export interface FreelanceEntry {
+//   project: string;
+//   role: string;
+//   date: string;
+//   location: string;
+//   description: string;
+//   highlights?: string[];
+//   link?: string;
+// }
+
 export interface OpenSourceEntry {
   project: string;
   role: string;
@@ -54,6 +64,7 @@ export interface PortfolioData {
   personal: Personal;
   about: About;
   work: WorkEntry[];
+  // freelancing: FreelanceEntry[];
   openSource: OpenSourceEntry[];
   projects: Project[];
   achievements: Achievement[];
