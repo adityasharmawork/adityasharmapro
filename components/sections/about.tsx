@@ -20,20 +20,20 @@ const highlights = [
     icon: Layers,
     title: "2x Hackathon Winner",
     desc: "Built under pressure, shipped under deadlines, won against hundreds",
-    span: "sm:col-span-2",
+    span: "sm:col-span-3",
   },
-  {
-    icon: Shield,
-    title: "Contributor at Kubernetes",
-    desc: "Actively contributing to open source to sharpen my craft — Kubernetes and beyond",
-    span: "sm:col-span-1",
-  },
-  {
-    icon: Terminal,
-    title: "Full Stack to Infra",
-    desc: "From React to GoLang workers to Cloudflare edge",
-    span: "sm:col-span-1",
-  },
+  // {
+  //   icon: Shield,
+  //   title: "Contributor at Kubernetes",
+  //   desc: "Actively contributing to open source to sharpen my craft — Kubernetes and beyond",
+  //   span: "sm:col-span-1",
+  // },
+  // {
+  //   icon: Terminal,
+  //   title: "Full Stack to Infra",
+  //   desc: "From React to GoLang workers to Cloudflare edge",
+  //   span: "sm:col-span-1",
+  // },
 ];
 
 export function About({ about }: AboutProps) {
@@ -84,7 +84,10 @@ export function About({ about }: AboutProps) {
           </div>
         </ScrollReveal>
 
-        {/* Engineering highlights — 4 cards */}
+      </div>
+
+      {/* Engineering highlights — separate grid with its own column ratio */}
+      <div className="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-5">
         {highlights.map((item, i) => (
           <ScrollReveal key={item.title} delay={0.25 + i * 0.08} className={`col-span-1 ${item.span}`}>
             <motion.div

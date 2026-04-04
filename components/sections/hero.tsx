@@ -34,7 +34,7 @@ function SplitText({
       aria-label={text}
     >
       {words.map((word, wi) => (
-        <span key={wi} className="inline-block overflow-hidden">
+        <span key={wi} className="inline-block overflow-hidden pb-[0.15em]">
           {word.split("").map((char, ci) => (
             <motion.span
               key={ci}
