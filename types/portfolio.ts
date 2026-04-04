@@ -53,6 +53,23 @@ export interface Achievement {
   year: string;
 }
 
+export interface YouTubeVideo {
+  title: string;
+  videoId: string;
+  description: string;
+}
+
+export interface BlogArticle {
+  title: string;
+  link: string;
+  description: string;
+}
+
+export interface Hobby {
+  videos: YouTubeVideo[];
+  articles: BlogArticle[];
+}
+
 export interface Socials {
   github: string;
   linkedin: string;
@@ -68,5 +85,6 @@ export interface PortfolioData {
   openSource: OpenSourceEntry[];
   projects: Project[];
   achievements: Achievement[];
+  hobby: Hobby;
   socials: Socials;
 }

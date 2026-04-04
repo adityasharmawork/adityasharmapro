@@ -7,6 +7,7 @@ import { OpenSource } from "@/components/sections/open-source";
 // import { Freelancing } from "@/components/sections/freelancing";
 import { Projects } from "@/components/sections/projects";
 import { Achievements } from "@/components/sections/achievements";
+import { HobbySection } from "@/components/sections/youtube";
 import { Contact } from "@/components/sections/contact";
 import { SectionDivider } from "@/components/section-divider";
 
@@ -27,6 +28,8 @@ export default function Home() {
       <Projects projects={data.projects} />
       <SectionDivider />
       <Achievements achievements={data.achievements} />
+      <SectionDivider />
+      <HobbySection hobby={data.hobby} />
       <SectionDivider />
       <Contact personal={data.personal} socials={data.socials} />
     </main>
