@@ -34,7 +34,7 @@ export function PreloaderProvider({ children }: { children: React.ReactNode }) {
               transition={{ duration: 0.8, delay: 0.3, ease: [0.25, 0.4, 0.25, 1] }}
               className="select-none font-mono text-6xl font-light tracking-tighter text-foreground sm:text-8xl"
             >
-              AS
+              Welcome!
             </motion.span>
           </motion.div>
         )}

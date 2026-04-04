@@ -34,7 +34,7 @@ export function Work({ work }: WorkProps) {
     <section id="work" className="px-6 py-32 sm:px-12 lg:px-24">
       <ScrollReveal>
         <p className="mb-12 text-xs tracking-widest uppercase text-foreground/40">
-          Experience
+          Some amazing places I worked at
         </p>
       </ScrollReveal>
 
