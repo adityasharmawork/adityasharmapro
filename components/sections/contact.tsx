@@ -12,6 +12,7 @@ import {
   FileText,
 } from "lucide-react";
 import { ScrollReveal } from "@/components/scroll-reveal";
+import { Magnetic } from "@/components/magnetic";
 import type { Personal, Socials } from "@/types/portfolio";
 
 interface ContactProps {
@@ -43,22 +44,24 @@ export function Contact({ personal, socials }: ContactProps) {
         </p>
       </ScrollReveal>
 
-      {/* Massive "Let's Talk" mailto link */}
+      {/* Massive magnetic "Let's Talk" */}
       <ScrollReveal delay={0.1}>
-        <a
-          href={`mailto:${personal.email}`}
-          className="group inline-flex items-center gap-4"
-          data-cursor-hover
-        >
-          <span className="text-4xl font-bold tracking-tighter sm:text-6xl lg:text-8xl">
-            Let&apos;s Talk
-          </span>
-          <ArrowUpRight
-            size={40}
-            strokeWidth={1}
-            className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
-          />
-        </a>
+        <Magnetic strength={0.15}>
+          <a
+            href={`mailto:${personal.email}`}
+            className="group inline-flex items-center gap-4"
+            data-cursor-hover
+          >
+            <span className="text-4xl font-bold tracking-tighter sm:text-5xl lg:text-7xl">
+              Let&apos;s Talk
+            </span>
+            <ArrowUpRight
+              size={40}
+              strokeWidth={1}
+              className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
+            />
+          </a>
+        </Magnetic>
       </ScrollReveal>
 
       {/* Email + Copy button */}
@@ -99,21 +102,22 @@ export function Contact({ personal, socials }: ContactProps) {
         </div>
       </ScrollReveal>
 
-      {/* Social links */}
+      {/* Social links with magnetic effect */}
       <ScrollReveal delay={0.3}>
         <div className="mt-16 flex items-center gap-6">
           {socialLinks.map((social) => (
-            <a
-              key={social.label}
-              href={social.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex items-center gap-2 text-foreground/40 transition-colors hover:text-foreground"
-              data-cursor-hover
-            >
-              <social.icon size={18} strokeWidth={1.5} />
-              <span className="text-sm">{social.label}</span>
-            </a>
+            <Magnetic key={social.label} strength={0.25}>
+              <a
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-2 text-foreground/40 transition-colors hover:text-foreground"
+                data-cursor-hover
+              >
+                <social.icon size={18} strokeWidth={1.5} />
+                <span className="text-sm">{social.label}</span>
+              </a>
+            </Magnetic>
           ))}
         </div>
       </ScrollReveal>

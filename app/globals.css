@@ -1,10 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  --background: #000000;
+  --background: #0a0a0b;
   --foreground: #ffffff;
-  --border: #1a1a1a;
+  --border: #1c1c1e;
   --hover: #333333;
+  --accent: #3b82f6;
 }
 
 @theme inline {
@@ -12,6 +13,7 @@
   --color-foreground: var(--foreground);
   --color-border: var(--border);
   --color-hover: var(--hover);
+  --color-accent: var(--accent);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -37,7 +39,7 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #000000;
+  background: #0a0a0b;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -50,4 +52,42 @@ body {
 
 section[id] {
   scroll-margin-top: 2rem;
+}
+
+@keyframes grain {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(-5%, -10%);
+  }
+  20% {
+    transform: translate(-15%, 5%);
+  }
+  30% {
+    transform: translate(7%, -15%);
+  }
+  40% {
+    transform: translate(-5%, 15%);
+  }
+  50% {
+    transform: translate(-15%, 10%);
+  }
+  60% {
+    transform: translate(15%, 0%);
+  }
+  70% {
+    transform: translate(0%, 10%);
+  }
+  80% {
+    transform: translate(3%, -15%);
+  }
+  90% {
+    transform: translate(-10%, 10%);
+  }
+}
+
+.animate-grain {
+  animation: grain 8s steps(10) infinite;
 }

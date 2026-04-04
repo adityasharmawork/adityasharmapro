@@ -3,10 +3,15 @@
 export function GrainOverlay() {
   return (
     <div
-      className="pointer-events-none fixed inset-0 z-50"
+      className="pointer-events-none fixed inset-0 z-50 animate-grain"
       style={{ opacity: 0.05 }}
     >
-      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+      <svg
+        width="200%"
+        height="200%"
+        xmlns="http://www.w3.org/2000/svg"
+        className="absolute -top-1/2 -left-1/2"
+      >
         <filter id="grain">
           <feTurbulence
             type="fractalNoise"

@@ -4,6 +4,9 @@ import "./globals.css";
 import { GrainOverlay } from "@/components/grain-overlay";
 import { CustomCursor } from "@/components/custom-cursor";
 import { BottomDock } from "@/components/bottom-dock";
+import { ScrollProgress } from "@/components/scroll-progress";
+import { PreloaderProvider } from "@/components/preloader";
+import { EasterEggs } from "@/components/easter-eggs";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,7 +21,25 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Aditya Sharma | Software Engineer",
   description:
-    "One of the Finest TypeScript / GoLang Developers you can find in the planet.",
+    "Software Engineer building scalable systems with TypeScript and GoLang. Open source contributor to Kubernetes. Based in India.",
+  openGraph: {
+    title: "Aditya Sharma | Software Engineer",
+    description:
+      "Software Engineer building scalable systems with TypeScript and GoLang. Open source contributor to Kubernetes.",
+    siteName: "Aditya Sharma",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Aditya Sharma | Software Engineer",
+    description:
+      "Software Engineer building scalable systems with TypeScript and GoLang.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
@@ -31,10 +52,14 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased bg-background text-foreground`}
       >
-        <GrainOverlay />
-        <CustomCursor />
-        {children}
-        <BottomDock />
+        <PreloaderProvider>
+          <GrainOverlay />
+          <CustomCursor />
+          <ScrollProgress />
+          <EasterEggs />
+          {children}
+          <BottomDock />
+        </PreloaderProvider>
       </body>
     </html>
   );
