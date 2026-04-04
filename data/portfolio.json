@@ -293,6 +293,32 @@
       "year": "2024"
     }
   ],
+  "hobby": {
+    "videos": [
+      {
+        "title": "GoTunnel",
+        "videoId": "g_NWY3BVe3M",
+        "description": "Building a TCP tunnel from scratch in GoLang — exposing local servers to the internet."
+      },
+      {
+        "title": "How Kubernetes Actually Works: Building a Custom Kubelet in Golang",
+        "videoId": "OmgQ4CZ-U70",
+        "description": "Deep dive into Kubernetes internals by building a custom Kubelet from the ground up in Go."
+      }
+    ],
+    "articles": [
+      {
+        "title": "Understanding the 3-Way Handshake in TCP/IP Connections",
+        "link": "https://expressjs-libraries.hashnode.dev/understanding-the-3-way-handshake-in-tcp-ip-connections",
+        "description": "A deep dive into how TCP establishes reliable connections through the SYN, SYN-ACK, ACK process."
+      },
+      {
+        "title": "Boost Your Express Apps: 5 Essential Middleware Libraries You Can't Ignore",
+        "link": "https://expressjs-libraries.hashnode.dev/boost-your-express-apps-5-essential-middleware-libraries-you-cant-ignore",
+        "description": "Essential middleware libraries that every Express.js developer should know to build production-ready APIs."
+      }
+    ]
+  },
   "socials": {
     "github": "https://dub.sh/adityagithub",
     "linkedin": "https://dub.sh/adityalinkedin",

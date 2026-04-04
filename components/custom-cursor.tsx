@@ -1,10 +1,11 @@
 "use client";
 
-import { motion, useMotionValue, useSpring } from "framer-motion";
+import { motion, useMotionValue, useSpring, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 
 export function CustomCursor() {
   const [isHovering, setIsHovering] = useState(false);
+  const [cursorText, setCursorText] = useState("");
   const [isVisible, setIsVisible] = useState(false);
   const cursorX = useMotionValue(0);
   const cursorY = useMotionValue(0);
@@ -26,12 +27,19 @@ export function CustomCursor() {
 
     const handleMouseOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
+      const textEl = target.closest("[data-cursor-text]") as HTMLElement | null;
+      if (textEl) {
+        setIsHovering(true);
+        setCursorText(textEl.dataset.cursorText || "");
+        return;
+      }
       if (
         target.closest("a") ||
         target.closest("button") ||
         target.closest("[data-cursor-hover]")
       ) {
         setIsHovering(true);
+        setCursorText("");
       }
     };
 
@@ -40,9 +48,11 @@ export function CustomCursor() {
       if (
         target.closest("a") ||
         target.closest("button") ||
-        target.closest("[data-cursor-hover]")
+        target.closest("[data-cursor-hover]") ||
+        target.closest("[data-cursor-text]")
       ) {
         setIsHovering(false);
+        setCursorText("");
       }
     };
 
@@ -60,9 +70,11 @@ export function CustomCursor() {
 
   if (!isVisible) return null;
 
+  const hasText = isHovering && cursorText.length > 0;
+
   return (
     <motion.div
-      className="pointer-events-none fixed top-0 left-0 z-[100] rounded-full bg-white mix-blend-difference"
+      className="pointer-events-none fixed top-0 left-0 z-[100] flex items-center justify-center rounded-full bg-white mix-blend-difference"
       style={{
         x: springX,
         y: springY,
@@ -70,10 +82,25 @@ export function CustomCursor() {
         translateY: "-50%",
       }}
       animate={{
-        width: isHovering ? 48 : 12,
-        height: isHovering ? 48 : 12,
+        width: hasText ? 80 : isHovering ? 48 : 12,
+        height: hasText ? 80 : isHovering ? 48 : 12,
       }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
-    />
+    >
+      <AnimatePresence mode="wait">
+        {hasText && (
+          <motion.span
+            key={cursorText}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            transition={{ duration: 0.15 }}
+            className="text-[11px] font-medium text-black"
+          >
+            {cursorText}
+          </motion.span>
+        )}
+      </AnimatePresence>
+    </motion.div>
   );
 }
