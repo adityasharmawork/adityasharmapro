@@ -6,6 +6,7 @@ import {
   useTransform,
   useSpring,
   animate,
+  AnimatePresence,
   type MotionValue,
 } from "framer-motion";
 import {
@@ -18,6 +19,12 @@ import {
   Zap,
 } from "lucide-react";
 import { useRef, useState, useEffect, useCallback } from "react";
+import { Caveat } from "next/font/google";
+
+const caveat = Caveat({
+  subsets: ["latin"],
+  weight: ["400"],
+});
 
 const DOCK_ITEMS = [
   { icon: Home, label: "Home", href: "#hero" },
@@ -93,10 +100,77 @@ function DockItem({
   );
 }
 
+function DragHint({ visible }: { visible: boolean }) {
+  return (
+    <AnimatePresence>
+      {visible && (
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.3 } }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          className="pointer-events-none absolute -top-24 left-1/2 z-50 -translate-x-1/2 sm:-top-28 sm:left-[55%] sm:translate-x-0"
+        >
+          {/* Cursive handwriting text with glow */}
+          <motion.p
+            animate={{ y: [0, -4, 0], rotate: [-12, -9, -12] }}
+            transition={{
+              duration: 2.8,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className={`${caveat.className} whitespace-nowrap text-[22px] text-white sm:text-[28px]`}
+            style={{
+              rotate: -12,
+              filter: "drop-shadow(0 0 14px rgba(255,255,255,0.25))",
+            }}
+          >
+            Drag me!
+          </motion.p>
+
+          {/* Hand-drawn curvy arrow that draws itself in */}
+          <svg
+            width="110"
+            height="64"
+            viewBox="0 0 110 64"
+            fill="none"
+            className="-ml-4 -mt-1 scale-[0.8] sm:-ml-8 sm:scale-100"
+          >
+            {/* Main curve — sweeps from text area down-left toward the dock */}
+            <motion.path
+              d="M 68 4 C 78 22, 36 28, 22 52"
+              stroke="white"
+              strokeWidth="1.8"
+              strokeLinecap="round"
+              strokeOpacity="0.55"
+              initial={{ pathLength: 0 }}
+              animate={{ pathLength: 1 }}
+              transition={{ duration: 0.8, delay: 0.25, ease: "easeOut" }}
+            />
+            {/* Arrowhead */}
+            <motion.path
+              d="M 15 44 L 21 56 L 29 48"
+              stroke="white"
+              strokeWidth="1.8"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeOpacity="0.55"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.55 }}
+              transition={{ delay: 1, duration: 0.25 }}
+            />
+          </svg>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+}
+
 export function BottomDock() {
   const mouseX = useMotionValue(Infinity);
   const wrapperRef = useRef<HTMLDivElement>(null);
   const [isDragging, setIsDragging] = useState(false);
+  const [showHint, setShowHint] = useState(false);
   const wasDragged = useRef(false);
 
   // Drag offset motion values — applied via style={{ x, y }} on the wrapper
@@ -206,6 +280,22 @@ export function BottomDock() {
     [offsetX, offsetY]
   );
 
+  // Show "Drag me!" hint after entrance animation finishes, then auto-hide
+  useEffect(() => {
+    // Entrance: 1.5s delay + 0.6s animation = 2.1s, add 0.4s buffer
+    const showTimer = setTimeout(() => setShowHint(true), 2500);
+    const hideTimer = setTimeout(() => setShowHint(false), 5500);
+    return () => {
+      clearTimeout(showTimer);
+      clearTimeout(hideTimer);
+    };
+  }, []);
+
+  // Hide hint immediately when user starts dragging
+  useEffect(() => {
+    if (isDragging) setShowHint(false);
+  }, [isDragging]);
+
   // Double-click to reset to original position
   const handleDoubleClick = useCallback(() => {
     const springConfig = {
@@ -225,6 +315,8 @@ export function BottomDock() {
         style={{ x: offsetX, y: offsetY }}
         className="fixed bottom-6 left-1/2 z-40 -translate-x-1/2 sm:bottom-8"
       >
+        <DragHint visible={showHint} />
+
         {/* Nav: owns entrance animation + magnification */}
         <motion.nav
           initial={{ y: 100, opacity: 0 }}
