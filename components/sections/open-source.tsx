@@ -86,9 +86,31 @@ export function OpenSource({ openSource }: OpenSourceProps) {
                       ease: [0.25, 0.4, 0.25, 1],
                     }}
                   >
-                    <p className="mt-4 max-w-2xl text-sm leading-relaxed text-foreground/60">
+                    {/* <p className="mt-4 max-w-2xl text-sm leading-relaxed text-foreground/60">
                       {entry.description}
-                    </p>
+                    </p> */}
+
+                    {entry.prs && entry.prs.length > 0 && (
+                      <div className="mt-4 flex flex-col items-start gap-3 sm:flex-row sm:flex-wrap">
+                        {entry.prs.map((pr, j) => {
+                          const prNumberMatch = pr.match(/\/pull\/(\d+)/);
+                          const prNumber = prNumberMatch ? prNumberMatch[1] : (j + 1).toString();
+                          return (
+                            <a
+                              key={j}
+                              href={pr}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1.5 rounded-full border border-border bg-foreground/5 px-3 py-1 text-xs font-medium text-foreground/70 transition-colors hover:bg-foreground/10 hover:text-foreground"
+                              data-cursor-hover
+                            >
+                              <GitBranch size={12} className="text-foreground/50" />
+                              PR #{prNumber}
+                            </a>
+                          );
+                        })}
+                      </div>
+                    )}
 
                     {entry.highlights && entry.highlights.length > 0 && (
                       <ul className="mt-4 max-w-2xl space-y-2 border-l border-foreground/10 pl-4">
