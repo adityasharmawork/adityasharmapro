@@ -94,10 +94,33 @@
       "role": "Contributor",
       "link": "https://github.com/kubernetes/kubernetes",
       "description": "Contributing to the world's most popular container orchestration platform.",
+      "prs": [
+        "https://github.com/kubernetes/kubernetes/pull/136322",
+        "https://github.com/kubernetes/kubernetes/pull/136290",
+        "https://github.com/kubernetes/kubernetes/pull/136271",
+        "https://github.com/kubernetes/kubernetes/pull/136065"
+      ],
       "highlights": [
-        "Identified and resolved goroutine leak in client-go shared informer",
-        "Removed deprecated PodStatusResult type across the codebase",
-        "Collaborated with maintainers through rigorous code review cycles"
+        "Proposed a fix for a critical race condition in the kube-apiserver startup sequence to ensure reliable cluster upgrades from v1.32 to v1.33",
+        "Identified a core probe lifecycle bug in the kubelet and working to strictly enforce readinessProbe invariants during container restarts",
+        "Enhancing cloud-provider service reconciliation to properly sync LoadBalancer states when manually cleared by external GitOps pipelines",
+        "Advocating for the reduction of technical debt by proposing the removal of over 3,600 lines of vestigial API types and tests untouched for a decade"
+      ]
+    },
+    {
+      "project": "Keploy",
+      "role": "Contributor",
+      "link": "https://github.com/keploy/keploy",
+      "description": "Contributing to the open-source API testing platform.",
+      "prs": [
+        "https://github.com/keploy/keploy/pull/3591",
+        "https://github.com/keploy/keploy/pull/3471",
+        "https://github.com/keploy/keploy/pull/3469#ref-commit-8a27d3a"
+      ],
+      "highlights": [
+        "Proposed a solution to replace abrupt panics with graceful error handling in the MySQL binary protocol parser, aiming to improve the Keploy agent's resilience against malformed inputs",
+        "Fixing an edge case where Keploy hangs during certain MySQL/TiDB connections and working on a patch to properly support the CLIENT_DEPRECATE_EOF capability",
+        "Proposing a safeguard to prevent potential nil pointer dereferences during eBPF hook teardown on Linux, contributing to more reliable agent shutdown routines"
       ]
     },
     {
@@ -105,9 +128,11 @@
       "role": "Contributor",
       "link": "https://github.com/lingo-dev/lingo",
       "description": "Contributing to an open-source i18n toolkit for modern web applications.",
+      "prs": [
+        "https://github.com/lingodotdev/lingo.dev/pull/1616"
+      ],
       "highlights": [
-        "Fixed critical build conflicts with Turbopack parallel compilation",
-        "Improved developer experience for Next.js integration workflows"
+        "Proposing an environment-aware documentation routing mechanism for the CLI, dynamically directing developers to context-specific resources"
       ]
     }
   ],

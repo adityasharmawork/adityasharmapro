@@ -37,6 +37,7 @@ export interface OpenSourceEntry {
   link: string;
   description: string;
   highlights?: string[];
+  prs?: string[];
 }
 
 export interface Project {
