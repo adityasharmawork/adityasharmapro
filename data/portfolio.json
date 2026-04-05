@@ -253,6 +253,25 @@
       "featured": false
     },
     {
+      "title": "Live Collaboration Template",
+      "description": "Developed a real-time collaborative design template to enable synchronized drawing, shape manipulation, and text editing on a shared canvas so others can start on top it.",
+      "tags": [
+        "Next.js",
+        "WebRTC using LiveBlocks"
+      ],
+      "link": "https://github.com/adityasharmawork/live_collaboration",
+      "featured": false
+    },
+    {
+      "title": "Supabase + Stripe Starter",
+      "description": "A fun project helping founders set up inital Supabase + Stripe integration easily.",
+      "tags": [
+        "TypeScript"
+      ],
+      "link": "https://github.com/adityasharmawork/supabase-stripe-boilerplate",
+      "featured": false
+    },
+    {
       "title": "Learnyst AI",
       "description": "A comprehensive DSA/CP contest tracker integrating LeetCode and Codeforces. Features resource hubs and integrated video solutions, serving 500+ active users.",
       "tags": [
@@ -262,6 +281,41 @@
       ],
       "link": "https://dub.sh/algosprint",
       "featured": false
+    },
+    {
+      "title": "Proxy Web Server",
+      "description": "Developed a multithreaded HTTP proxy server in C using POSIX threads and socket programming to handle concurrent client network requests. Integrated a synchronized LRU cache with strict concurrency controls (mutex locks and semaphores) to minimize latency and bandwidth consumption.",
+      "tags": [
+        "C",
+        "Makefile",
+        "IPC"
+      ],
+      "link": "https://github.com/adityasharmawork/Multithreaded-Proxy-Web-Server",
+      "featured": false
+    },
+    {
+      "title": "AutoInfer - NPM CLI Tool",
+      "description": "An NPM CLI tool that instantly generates TypeScript interfaces and JSON schemas from multi-source ingestion (API, CSV, SQL), cutting development overhead by 80%.",
+      "tags": [
+        "TypeScript",
+        "Node.js",
+        "CLI",
+        "NPM"
+      ],
+      "link": "https://dub.sh/autoinfer-npm ",
+      "featured": true
+    },
+    {
+      "title": "Transia - NPM CLI Tool",
+      "description": "A MultiLingual Website Translation Platform with Built In Advanced Analtics Features.",
+      "tags": [
+        "TypeScript",
+        "Node.js",
+        "CLI",
+        "NPM"
+      ],
+      "link": "https://dub.sh/autoinfer-npm ",
+      "featured": true
     },
     {
       "title": "GoTunnel",
@@ -283,6 +337,17 @@
         "Tailwind CSS"
       ],
       "link": "https://dub.sh/algosprint",
+      "featured": false
+    },
+    {
+      "title": "MicroKubelet",
+      "description": "Engineered a lightweight, Kubernetes-inspired container orchestrator in Go, utilizing the Docker Engine SDK to autonomously manage container lifecycles. Implemented a continuous reconciliation loop to enforce declarative JSON state, featuring self-healing restart policies and automated status reporting.",
+      "tags": [
+        "Go",
+        "Kubernetes",
+        "Docker Client SDK"
+      ],
+      "link": "https://github.com/adityasharmawork/micro-kubelet",
       "featured": false
     }
   ],
