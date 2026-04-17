@@ -9,6 +9,7 @@ import { Projects } from "@/components/sections/projects";
 import { Achievements } from "@/components/sections/achievements";
 import { HobbySection } from "@/components/sections/youtube";
 import { Contact } from "@/components/sections/contact";
+import { CommitGraph } from "@/components/sections/commit-graph";
 import { SectionDivider } from "@/components/section-divider";
 
 const data = portfolioData as PortfolioData;
@@ -17,6 +18,8 @@ export default function Home() {
   return (
     <main>
       <Hero personal={data.personal} />
+      <SectionDivider />
+      <CommitGraph />
       <SectionDivider />
       <About about={data.about} />
       <SectionDivider />
