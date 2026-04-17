@@ -6,6 +6,11 @@
   --border: #1c1c1e;
   --hover: #333333;
   --accent: #3b82f6;
+  --contribution-0: rgba(255, 255, 255, 0.06);
+  --contribution-1: #1d4ed8;
+  --contribution-2: #2563eb;
+  --contribution-3: #3b82f6;
+  --contribution-4: #60a5fa;
 }
 
 @theme inline {
@@ -16,6 +21,11 @@
   --color-accent: var(--accent);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-contribution-0: var(--contribution-0);
+  --color-contribution-1: var(--contribution-1);
+  --color-contribution-2: var(--contribution-2);
+  --color-contribution-3: var(--contribution-3);
+  --color-contribution-4: var(--contribution-4);
 }
 
 html {
@@ -90,4 +100,14 @@ section[id] {
 
 .animate-grain {
   animation: grain 8s steps(10) infinite;
+}
+
+/* Invisible scrollbar for the graph */
+.graph-scroll-container {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.graph-scroll-container::-webkit-scrollbar {
+  display: none;
 }
