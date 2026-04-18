@@ -10,6 +10,7 @@ import { Achievements } from "@/components/sections/achievements";
 import { HobbySection } from "@/components/sections/youtube";
 import { Contact } from "@/components/sections/contact";
 import { CommitGraph } from "@/components/sections/commit-graph";
+import { XPosts } from "@/components/sections/x-posts";
 import { SectionDivider } from "@/components/section-divider";
 
 const data = portfolioData as PortfolioData;
@@ -33,6 +34,8 @@ export default function Home() {
       <Achievements achievements={data.achievements} />
       <SectionDivider />
       <HobbySection hobby={data.hobby} />
+      <SectionDivider />
+      <XPosts />
       <SectionDivider />
       <Contact personal={data.personal} socials={data.socials} />
     </main>
