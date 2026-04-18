@@ -21,11 +21,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Aditya Sharma | Software Engineer",
+  title: "Aditya Sharma",
   description:
     "Software Engineer building scalable systems with TypeScript and GoLang. Open source contributor to Kubernetes. Based in India.",
   openGraph: {
-    title: "Aditya Sharma | Software Engineer",
+    title: "Aditya Sharma",
     description:
       "Software Engineer building scalable systems with TypeScript and GoLang. Open source contributor to Kubernetes.",
     siteName: "Aditya Sharma",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Aditya Sharma | Software Engineer",
+    title: "Aditya Sharma",
     description:
       "Software Engineer building scalable systems with TypeScript and GoLang.",
   },
