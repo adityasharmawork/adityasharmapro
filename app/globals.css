@@ -111,3 +111,67 @@ section[id] {
 .graph-scroll-container::-webkit-scrollbar {
   display: none;
 }
+
+/* react-tweet dark theme overrides */
+.react-tweet-theme {
+  --tweet-bg-color: #0a0a0b !important;
+  --tweet-bg-color-hover: #0f0f10 !important;
+  --tweet-border: #1c1c1e !important;
+  --tweet-font-color: #ffffff !important;
+  --tweet-font-color-secondary: rgba(255, 255, 255, 0.45) !important;
+  --tweet-font-family: var(--font-geist-sans), system-ui, sans-serif;
+  --tweet-color-blue-primary: rgba(255, 255, 255, 0.7) !important;
+  --tweet-color-blue-secondary-hover: rgba(255, 255, 255, 0.05) !important;
+  --tweet-container-margin: 0 !important;
+}
+
+.react-tweet-theme [data-theme="dark"] {
+  --tweet-bg-color: #0a0a0b !important;
+  --tweet-bg-color-hover: #0f0f10 !important;
+  --tweet-border: #1c1c1e !important;
+  --tweet-font-color: #ffffff !important;
+  --tweet-font-color-secondary: rgba(255, 255, 255, 0.45) !important;
+  --tweet-color-blue-primary: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Our wrapper — border + padding lives here */
+.react-tweet-theme {
+  border: 1px solid #1c1c1e;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.02);
+  padding: 0.5rem;
+  overflow: hidden;
+}
+
+/* Strip all spacing/borders from react-tweet internals */
+.react-tweet-theme > div,
+.react-tweet-theme > div > div,
+.react-tweet-theme article {
+  margin: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  max-width: 100% !important;
+  background: transparent !important;
+  border: none !important;
+}
+
+/* Kill borders on everything inside */
+.react-tweet-theme article * {
+  border-color: transparent !important;
+}
+
+/* Scale down tweet cards */
+.react-tweet-theme > div {
+  transform: scale(0.92);
+  transform-origin: top center;
+  margin-bottom: -0.5rem;
+}
+
+/* Scope link color to tweets only */
+.react-tweet-theme a {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.react-tweet-theme a:hover {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
