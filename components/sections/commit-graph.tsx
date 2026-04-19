@@ -103,6 +103,7 @@ export function CommitGraph() {
   const [error, setError] = useState<string | null>(null);
   const [tooltip, setTooltip] = useState<TooltipState | null>(null);
   const graphRef = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -124,6 +125,14 @@ export function CommitGraph() {
       });
 
     return () => controller.abort();
+  }, []);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 639px)");
+    setIsMobile(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
   }, []);
 
   const maxCount = useMemo(() => {
@@ -220,6 +229,9 @@ export function CommitGraph() {
     );
   }
 
+  const cellGap = isMobile ? 1 : GAP_PX;
+  const labelColWidth = isMobile ? 0 : LABEL_COL;
+
   const totalWeeks = data.weeks.length;
   const gridMinWidth = LABEL_COL + totalWeeks * (MIN_CELL + GAP_PX);
 
@@ -241,18 +253,24 @@ export function CommitGraph() {
 
       <ScrollReveal delay={0.1}>
         <div className="relative" ref={graphRef}>
-          {/* Scroll fade hint for mobile */}
-          <div className="pointer-events-none absolute top-0 right-0 z-10 h-full w-10 bg-gradient-to-l from-background to-transparent sm:hidden" />
+          {/* Scroll fade hint (hidden in compact mobile mode since graph fits) */}
+          {!isMobile && (
+            <div className="pointer-events-none absolute top-0 right-0 z-10 h-full w-10 bg-gradient-to-l from-background to-transparent sm:hidden" />
+          )}
 
           <div className="graph-scroll-container overflow-x-auto">
             <div
               className="mx-auto grid"
               style={{
-                gridTemplateColumns: `${LABEL_COL}px repeat(${totalWeeks}, 1fr)`,
-                gridTemplateRows: `20px repeat(7, auto)`,
-                gap: `${GAP_PX}px`,
-                minWidth: gridMinWidth,
-                maxWidth: LABEL_COL + totalWeeks * (11 + GAP_PX),
+                gridTemplateColumns: `${labelColWidth}px repeat(${totalWeeks}, 1fr)`,
+                gridTemplateRows: `${isMobile ? 0 : 20}px repeat(7, auto)`,
+                gap: `${cellGap}px`,
+                ...(isMobile
+                  ? {}
+                  : {
+                      minWidth: gridMinWidth,
+                      maxWidth: LABEL_COL + totalWeeks * (11 + GAP_PX),
+                    }),
               }}
             >
               {/* Top-left corner: empty */}
@@ -260,6 +278,7 @@ export function CommitGraph() {
 
               {/* Month labels */}
               {Array.from({ length: totalWeeks }).map((_, weekIdx) => {
+                if (isMobile) return <div key={`month-${weekIdx}`} />;
                 const monthLabel = monthLabels.find(
                   (m) => m.col === weekIdx
                 );
