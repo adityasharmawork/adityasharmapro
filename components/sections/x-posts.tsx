@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Tweet } from "react-tweet";
-import { useEffect, useState, type ReactNode } from "react";
+import { Component, useEffect, useState, type ReactNode } from "react";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { TWEET_CARDS } from "@/data/tweets";
 
@@ -64,6 +64,20 @@ function TweetCard({
   );
 }
 
+class TweetErrorBoundary extends Component<
+  { children: ReactNode },
+  { hasError: boolean }
+> {
+  state = { hasError: false };
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+  render() {
+    if (this.state.hasError) return <TweetSkeleton />;
+    return this.props.children;
+  }
+}
+
 // Distribute cards across columns for staggered masonry
 function distributeColumns<T>(items: T[], cols: number): T[][] {
   const columns: T[][] = Array.from({ length: cols }, () => []);
@@ -93,9 +107,9 @@ export function XPosts() {
   return (
     <section id="wall-of-love" className="px-6 py-32 sm:px-12 lg:px-24">
       <ScrollReveal>
-        <p className="mb-2 text-xs tracking-widest uppercase text-foreground/40">
+        <h2 className="mb-2 text-xs font-normal tracking-widest uppercase text-foreground/40">
           Wall of Love
-        </p>
+        </h2>
         <p className="mb-12 text-xl font-medium tracking-tight text-foreground/80 sm:text-2xl">
           Proof &gt; Promises
         </p>
@@ -110,10 +124,12 @@ export function XPosts() {
                 <ScrollReveal key={card.id} delay={globalIdx * 0.08}>
                   <TweetCard rotation={card.rotation}>
                     <div data-theme="dark" className="react-tweet-theme">
-                      <Tweet
-                        id={card.id}
-                        fallback={<TweetSkeleton />}
-                      />
+                      <TweetErrorBoundary>
+                        <Tweet
+                          id={card.id}
+                          fallback={<TweetSkeleton />}
+                        />
+                      </TweetErrorBoundary>
                     </div>
                   </TweetCard>
                 </ScrollReveal>

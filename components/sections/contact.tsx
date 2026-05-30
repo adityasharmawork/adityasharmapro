@@ -39,9 +39,9 @@ export function Contact({ personal, socials }: ContactProps) {
   return (
     <section id="contact" className="px-6 py-32 sm:px-12 lg:px-24">
       <ScrollReveal>
-        <p className="mb-8 text-xs tracking-widest uppercase text-foreground/40">
+        <h2 className="mb-8 text-xs font-normal tracking-widest uppercase text-foreground/40">
           Contact
-        </p>
+        </h2>
       </ScrollReveal>
 
       {/* Massive magnetic "Let's Talk" */}

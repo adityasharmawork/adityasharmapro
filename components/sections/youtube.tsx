@@ -14,9 +14,9 @@ export function HobbySection({ hobby }: HobbyProps) {
   return (
     <section id="youtube-and-articles" className="px-6 py-32 sm:px-12 lg:px-24">
       <ScrollReveal>
-        <p className="mb-2 text-xs tracking-widest uppercase text-foreground/40">
+        <h2 className="mb-2 text-xs font-normal tracking-widest uppercase text-foreground/40">
           YouTube & Articles
-        </p>
+        </h2>
         <p className="mb-12 text-xl font-medium tracking-tight text-foreground/80 sm:text-2xl">
           Some Amazing Videos I Made
         </p>

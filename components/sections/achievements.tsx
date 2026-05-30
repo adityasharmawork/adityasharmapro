@@ -13,9 +13,9 @@ export function Achievements({ achievements }: AchievementsProps) {
   return (
     <section id="achievements" className="px-6 py-32 sm:px-12 lg:px-24">
       <ScrollReveal>
-        <p className="mb-12 text-xs tracking-widest uppercase text-foreground/40">
+        <h2 className="mb-12 text-xs font-normal tracking-widest uppercase text-foreground/40">
           Achievements
-        </p>
+        </h2>
       </ScrollReveal>
 
       <div className="space-y-0">

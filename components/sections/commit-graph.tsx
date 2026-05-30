@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useMemo, useCallback, useRef } from "react";
+import { useState, useEffect, useMemo, useCallback, useRef, Fragment } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import type { ContributionData, ContributionDay } from "@/types/github";
@@ -62,8 +62,8 @@ function SkeletonGrid() {
         ))}
 
         {Array.from({ length: rows }).map((_, row) => (
-          <>
-            <div key={`dsk-${row}`} className="flex items-center">
+          <Fragment key={`skrow-${row}`}>
+            <div className="flex items-center">
               {row % 2 === 1 && (
                 <motion.div
                   animate={{ opacity: [0.05, 0.15, 0.05] }}
@@ -90,7 +90,7 @@ function SkeletonGrid() {
                 style={{ aspectRatio: 1 }}
               />
             ))}
-          </>
+          </Fragment>
         ))}
       </div>
     </div>
@@ -201,9 +201,9 @@ export function CommitGraph() {
     return (
       <section className="px-6 py-20 sm:px-12 lg:px-24">
         <ScrollReveal>
-          <p className="mb-2 text-xs tracking-widest uppercase text-foreground/40">
+          <h2 className="mb-2 text-xs font-normal tracking-widest uppercase text-foreground/40">
             Contribution Activity
-          </p>
+          </h2>
           <div className="mb-2 h-8 w-32 rounded bg-foreground/[0.06]" />
           <div className="mb-8 h-4 w-56 rounded bg-foreground/[0.06]" />
         </ScrollReveal>
@@ -218,9 +218,9 @@ export function CommitGraph() {
     return (
       <section className="px-6 py-20 sm:px-12 lg:px-24">
         <ScrollReveal>
-          <p className="mb-2 text-xs tracking-widest uppercase text-foreground/40">
+          <h2 className="mb-2 text-xs font-normal tracking-widest uppercase text-foreground/40">
             Contribution Activity
-          </p>
+          </h2>
           <p className="text-sm text-foreground/30">
             {error ?? "Unable to load contribution data"}
           </p>
@@ -238,9 +238,9 @@ export function CommitGraph() {
   return (
     <section className="px-6 py-20 sm:px-12 lg:px-24">
       <ScrollReveal>
-        <p className="mb-3 text-xs tracking-widest uppercase text-foreground/40">
+        <h2 className="mb-3 text-xs font-normal tracking-widest uppercase text-foreground/40">
           Contribution Activity
-        </p>
+        </h2>
         <p className="mb-8 text-xl font-medium sm:text-2xl">
           <span className="text-foreground">
             {data.totalContributions.toLocaleString()}+
@@ -294,10 +294,9 @@ export function CommitGraph() {
 
               {/* Day rows */}
               {Array.from({ length: 7 }).map((_, dayIdx) => (
-                <>
+                <Fragment key={`dayrow-${dayIdx}`}>
                   {/* Day label */}
                   <div
-                    key={`day-label-${dayIdx}`}
                     className="flex items-center text-[11px] leading-none text-foreground/30"
                   >
                     <span className="hidden sm:inline">
@@ -347,7 +346,7 @@ export function CommitGraph() {
                       />
                     );
                   })}
-                </>
+                </Fragment>
               ))}
             </div>
           </div>
