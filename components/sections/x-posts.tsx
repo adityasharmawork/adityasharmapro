@@ -127,6 +127,7 @@ export function XPosts() {
                       <TweetErrorBoundary>
                         <Tweet
                           id={card.id}
+                          apiUrl={`/api/tweet/${card.id}`}
                           fallback={<TweetSkeleton />}
                         />
                       </TweetErrorBoundary>
