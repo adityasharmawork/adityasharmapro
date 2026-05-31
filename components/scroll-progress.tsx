@@ -13,7 +13,7 @@ export function ScrollProgress() {
   return (
     <motion.div
       style={{ scaleX, transformOrigin: "0%" }}
-      className="pointer-events-none fixed top-0 right-0 left-0 z-[60] h-[2px] bg-accent"
+      className="pointer-events-none fixed top-0 right-0 left-0 z-[60] h-[5px] bg-accent"
     />
   );
 }

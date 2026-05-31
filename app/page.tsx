@@ -30,7 +30,7 @@ const data = portfolioData as PortfolioData;
 export default function Home() {
   return (
     <main>
-      <Hero personal={data.personal} />
+      <Hero personal={data.personal} socials={data.socials} />
       <SectionDivider />
       <CommitGraph />
       <SectionDivider />

@@ -202,7 +202,7 @@ export function CommitGraph() {
       <section className="px-6 py-20 sm:px-12 lg:px-24">
         <ScrollReveal>
           <h2 className="mb-2 text-xs font-normal tracking-widest uppercase text-foreground/40">
-            Contribution Activity
+            Contribution Activity this year
           </h2>
           <div className="mb-2 h-8 w-32 rounded bg-foreground/[0.06]" />
           <div className="mb-8 h-4 w-56 rounded bg-foreground/[0.06]" />
@@ -219,7 +219,7 @@ export function CommitGraph() {
       <section className="px-6 py-20 sm:px-12 lg:px-24">
         <ScrollReveal>
           <h2 className="mb-2 text-xs font-normal tracking-widest uppercase text-foreground/40">
-            Contribution Activity
+            Contribution Activity this year
           </h2>
           <p className="text-sm text-foreground/30">
             {error ?? "Unable to load contribution data"}
@@ -239,7 +239,7 @@ export function CommitGraph() {
     <section className="px-6 py-20 sm:px-12 lg:px-24">
       <ScrollReveal>
         <h2 className="mb-3 text-xs font-normal tracking-widest uppercase text-foreground/40">
-          Contribution Activity
+          Contribution Activity this year
         </h2>
         <p className="mb-8 text-xl font-medium sm:text-2xl">
           <span className="text-foreground">
