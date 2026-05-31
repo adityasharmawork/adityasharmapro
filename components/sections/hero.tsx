@@ -1,12 +1,14 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
+import { ArrowRight, FileText, Mail, Github, Linkedin } from "lucide-react";
 import { usePreloaderComplete } from "@/components/preloader";
-import type { Personal } from "@/types/portfolio";
+import type { Personal, Socials } from "@/types/portfolio";
 
 interface HeroProps {
   personal: Personal;
+  socials: Socials;
 }
 
 function SplitText({
@@ -63,7 +65,28 @@ function SplitText({
   );
 }
 
-export function Hero({ personal }: HeroProps) {
+export function Hero({ personal, socials }: HeroProps) {
+  const [emailCopied, setEmailCopied] = useState(false);
+  const [contributions, setContributions] = useState<number | null>(null);
+
+  useEffect(() => {
+    fetch("/api/github")
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (data?.totalContributions) setContributions(data.totalContributions);
+      })
+      .catch(() => {});
+  }, []);
+
+  const handleCopyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(personal.email);
+      setEmailCopied(true);
+      setTimeout(() => setEmailCopied(false), 2000);
+    } catch {
+      // Silently fail if clipboard access is denied
+    }
+  };
   const heroRef = useRef<HTMLElement>(null);
   const isReady = usePreloaderComplete();
 
@@ -106,7 +129,7 @@ export function Hero({ personal }: HeroProps) {
     <section
       ref={heroRef}
       id="hero"
-      className="relative flex min-h-screen flex-col justify-center overflow-hidden px-6 sm:px-12 lg:px-24"
+      className="relative flex min-h-screen flex-col justify-center overflow-hidden px-6 pb-24 sm:px-12 lg:px-24"
     >
       {/* Subtle dot grid background */}
       <motion.div
@@ -176,11 +199,103 @@ export function Hero({ personal }: HeroProps) {
         ))}
       </motion.p>
 
+      {/* Stats strip */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={isReady ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+        transition={{ delay: 1.8, duration: 0.6 }}
+        style={{ y: taglineY }}
+        className="mt-8 flex"
+      >
+        {[
+          {
+            value: contributions
+              ? `${contributions.toLocaleString()}+`
+              : "\u2014",
+            label: "Contributions",
+          },
+          { value: "Contributor", label: "Kubernetes" },
+          { value: "2\u00d7", label: "Hackathon winner" },
+        ].map((stat, i) => (
+          <div
+            key={stat.label}
+            className={`px-3 py-2 sm:px-5 sm:py-3 ${
+              i > 0 ? "border-l border-border" : "pl-0"
+            }`}
+          >
+            <p className="font-mono text-sm text-accent sm:text-lg">{stat.value}</p>
+            <p className="font-mono text-[10px] tracking-wider uppercase text-foreground/40 sm:text-xs">
+              {stat.label}
+            </p>
+          </div>
+        ))}
+      </motion.div>
+
+      {/* Action row */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={isReady ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+        transition={{ delay: 2.0, duration: 0.6 }}
+        style={{ y: taglineY }}
+        className="mt-8 flex flex-col items-start gap-2 sm:mt-10 sm:flex-row sm:flex-wrap sm:gap-3"
+      >
+        <a
+          href="#work"
+          className="inline-flex items-center justify-center gap-1.5 rounded-full bg-accent px-3 py-1.5 text-xs font-medium text-background transition-colors hover:bg-accent/90 sm:gap-2 sm:px-4 sm:py-2 sm:text-sm"
+        >
+          View work
+          <ArrowRight size={12} strokeWidth={2} className="sm:h-3.5 sm:w-3.5" />
+        </a>
+        <a
+          href={socials.resume}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center justify-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-xs font-medium transition-colors hover:bg-foreground/5 sm:gap-2 sm:px-4 sm:py-2 sm:text-sm"
+        >
+          <FileText size={12} strokeWidth={1.5} className="sm:h-3.5 sm:w-3.5" />
+          R&eacute;sum&eacute;
+        </a>
+        <button
+          onClick={handleCopyEmail}
+          className="inline-flex items-center justify-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-xs font-medium transition-colors hover:bg-foreground/5 sm:gap-2 sm:px-4 sm:py-2 sm:text-sm"
+        >
+          <Mail size={12} strokeWidth={1.5} className="sm:h-3.5 sm:w-3.5" />
+          {emailCopied ? "Copied!" : "Email"}
+        </button>
+        <a
+          href={socials.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center justify-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-xs font-medium transition-colors hover:bg-foreground/5 sm:gap-2 sm:px-4 sm:py-2 sm:text-sm"
+        >
+          <Github size={12} strokeWidth={1.5} className="sm:h-3.5 sm:w-3.5" />
+          GitHub
+        </a>
+        <a
+          href={socials.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center justify-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-xs font-medium transition-colors hover:bg-foreground/5 sm:gap-2 sm:px-4 sm:py-2 sm:text-sm"
+        >
+          <Linkedin size={12} strokeWidth={1.5} className="sm:h-3.5 sm:w-3.5" />
+          LinkedIn
+        </a>
+        <a
+          href={socials.x}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center justify-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-xs font-medium transition-colors hover:bg-foreground/5 sm:gap-2 sm:px-4 sm:py-2 sm:text-sm"
+        >
+          <svg viewBox="0 0 24 24" fill="currentColor" className="h-3 w-3 sm:h-3.5 sm:w-3.5"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg>
+          X
+        </a>
+      </motion.div>
+
       {/* Scroll indicator — mouse shape with animated dot */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={isReady ? { opacity: 1 } : { opacity: 0 }}
-        transition={{ delay: 2.0, duration: 1 }}
+        transition={{ delay: 2.4, duration: 1 }}
         style={{ opacity: indicatorOpacity }}
         className="absolute bottom-12 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2"
       >
