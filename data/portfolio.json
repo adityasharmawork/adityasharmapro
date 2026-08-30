@@ -389,6 +389,11 @@
   "hobby": {
     "videos": [
       {
+        "title": "Monitoring & Observability - Grafana, Prometheus, Signoz, VPS, Winston Loki, Datadog, Alerting, Sentry and many more...",
+        "videoId": "pGzsj8EzB0s",
+        "description": "Must watch for Startup Founders / Founding Engineers"
+      },
+      {
         "title": "GoTunnel",
         "videoId": "g_NWY3BVe3M",
         "description": "Building a TCP tunnel from scratch in GoLang — exposing local servers to the internet."
