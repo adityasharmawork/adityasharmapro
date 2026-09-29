@@ -2,7 +2,7 @@
   "personal": {
     "name": "Aditya Sharma",
     "role": "Software Engineer",
-    "tagline": "One of the Finest TypeScript / GoLang Developers you can find in the planet.",
+    "tagline": "One of the Finest TypeScript / GoLang Developers you can find on the planet.",
     "location": "India",
     "email": "developeradityasharma@gmail.com",
     "availability": "Open to opportunities"
@@ -19,7 +19,7 @@
       "PostgreSQL",
       "Grafana",
       "Prometheus",
-      "open Telementry"
+      "OpenTelemetry"
     ]
   },
   "work": [
@@ -27,7 +27,7 @@
       "company": "InboxKit",
       "role": "Full Stack Developer",
       "date": "December 2025 – Present",
-      "location": "Dubai, Saudi Arab Emirates (Remote)",
+      "location": "Dubai, United Arab Emirates (Remote)",
       "description": "Engineering enterprise-scale infrastructure handling 100K+ users using TypeScript and GoLang, across 30+ microservices.",
       "highlights": [
         "Architected domain management systems handling huge scale",
@@ -43,7 +43,7 @@
       "company": "Enrich Labs",
       "role": "Full Stack Developer",
       "date": "December 2025 – Present",
-      "location": "Dubai, Saudi Arab Emirates (Remote)",
+      "location": "Dubai, United Arab Emirates (Remote)",
       "description": "Building InboxKit.",
       "highlights": [
         "Designed and shipped core product features end-to-end",
@@ -57,13 +57,13 @@
       "location": "San Francisco (Remote)",
       "description": "Architecting serverless applications with Cloudflare Workers and Durable Objects.",
       "highlights": [
-        "Architected serverless applications using CloudFlare Workers, optimizing edge computing performance and reducing latency across global distributed systems",
+        "Architected serverless applications using Cloudflare Workers, optimizing edge computing performance and reducing latency across global distributed systems",
         "Mastered Durable Objects implementation for stateful serverless computing, enabling real-time data persistence and seamless user session management at scale",
         "Engineered robust RPC function calls for microservices communication, streamlining inter-service data exchange and improving system reliability",
         "Delivered a comprehensive ReactJS application featuring complex TypeScript schemas and responsive Tailwind CSS design, resulting in faster development cycles and type-safe code architecture",
         "Integrated Zustand state management for persistent session handling, enhancing user experience through seamless data retention across browser sessions",
         "Built systems leveraging enterprise-grade AI-powered systems processing high-volume stream of responses",
-        "Implemented Tanstack Query (React Query) with industry-standard caching strategies, reducing API response times and optimizing data fetching patterns"
+        "Implemented TanStack Query (React Query) with industry-standard caching strategies, reducing API response times and optimizing data fetching patterns"
       ]
     },
     {
@@ -71,7 +71,7 @@
       "role": "Full Stack Developer",
       "date": "April 2025 – May 2025",
       "location": "India (Remote)",
-      "description": "Optimized full-stack scalability, achieving 99.9% uptime and increasing application response times by 40%.",
+      "description": "Optimized full-stack scalability, achieving 99.9% uptime and reducing application response times by 40%.",
       "highlights": [
         "Leveraged modern development practices to optimize codebase scalability, resulting in seamless user experiences across growing platform traffic",
         "Architected and delivered robust full-stack solutions across multiple client projects, collaborating with senior developers to build scalable systems that exceeded client expectations",
@@ -164,7 +164,7 @@
   "projects": [
     {
       "title": "Transia",
-      "description": "A MultiLingual Website Translation Platform with Built In Advanced Analtics Features.",
+      "description": "A MultiLingual Website Translation Platform with Built In Advanced Analytics Features.",
       "tags": [
         "Next.js",
         "MongoDB",
@@ -267,7 +267,7 @@
     },
     {
       "title": "Supabase + Stripe Starter",
-      "description": "A fun project helping founders set up inital Supabase + Stripe integration easily.",
+      "description": "A fun project helping founders set up initial Supabase + Stripe integration easily.",
       "tags": [
         "TypeScript"
       ],
@@ -305,19 +305,19 @@
         "CLI",
         "NPM"
       ],
-      "link": "https://dub.sh/autoinfer-npm ",
+      "link": "https://dub.sh/autoinfer-npm",
       "featured": true
     },
     {
       "title": "Transia - NPM CLI Tool",
-      "description": "A MultiLingual Website Translation Platform with Built In Advanced Analtics Features.",
+      "description": "A MultiLingual Website Translation Platform with Built In Advanced Analytics Features.",
       "tags": [
         "TypeScript",
         "Node.js",
         "CLI",
         "NPM"
       ],
-      "link": "https://dub.sh/autoinfer-npm ",
+      "link": "https://dub.sh/autoinfer-npm",
       "featured": true
     },
     {
@@ -372,12 +372,12 @@
     },
     {
       "title": "Letter of Recommendation",
-      "organization": "India Institute of Technology Delhi (IIT Delhi)",
+      "organization": "Indian Institute of Technology Delhi (IIT Delhi)",
       "year": "2024"
     },
     {
       "title": "Letter of Recommendation",
-      "organization": "India Institute of Technology Guwahati (IIT Guwahati)",
+      "organization": "Indian Institute of Technology Guwahati (IIT Guwahati)",
       "year": "2024"
     },
     {

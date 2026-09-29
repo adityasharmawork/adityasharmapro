@@ -83,13 +83,21 @@ export function Projects({ projects }: ProjectsProps) {
   });
 
   return (
-    <section id="projects">
+    <section id="projects" aria-labelledby="projects-heading">
+      {/* One real heading for both layouts; the visible labels below are decorative. */}
+      <h2 id="projects-heading" className="sr-only">
+        Projects
+      </h2>
+
       {/* Mobile: standard vertical grid */}
       <div className="px-6 py-32 sm:px-12 md:hidden lg:px-24">
         <ScrollReveal>
-          <h2 className="mb-12 text-xs font-normal tracking-widest uppercase text-foreground/40">
+          <p
+            aria-hidden="true"
+            className="mb-12 text-xs font-normal tracking-widest uppercase text-foreground/40"
+          >
             Projects
-          </h2>
+          </p>
         </ScrollReveal>
         <div className="grid grid-cols-1 gap-4">
           {projects.map((project, i) => (
@@ -143,9 +151,12 @@ export function Projects({ projects }: ProjectsProps) {
           {/* Header row */}
           <div className="flex items-end justify-between px-12 pt-24 pb-8 lg:px-24">
             <ScrollReveal>
-              <h2 className="text-xs font-normal tracking-widest uppercase text-foreground/40">
+              <p
+                aria-hidden="true"
+                className="text-xs font-normal tracking-widest uppercase text-foreground/40"
+              >
                 Projects
-              </h2>
+              </p>
             </ScrollReveal>
             <motion.p className="font-mono text-sm text-foreground/30">
               <motion.span>{currentIndex}</motion.span>
