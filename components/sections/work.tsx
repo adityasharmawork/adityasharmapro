@@ -1,9 +1,10 @@
 "use client";
 
-import { useState, useRef } from "react";
-import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { MapPin } from "lucide-react";
 import { ScrollReveal } from "@/components/scroll-reveal";
+import { Collapse, useExpandableList } from "@/components/expandable";
 import type { WorkEntry } from "@/types/portfolio";
 
 interface WorkProps {
@@ -11,7 +12,7 @@ interface WorkProps {
 }
 
 const bulletVariants = {
-  hidden: { opacity: 0, x: -8 },
+  hidden: { opacity: 0, x: -8, transition: { duration: 0.15 } },
   visible: (i: number) => ({
     opacity: 1,
     x: 0,
@@ -20,7 +21,8 @@ const bulletVariants = {
 };
 
 export function Work({ work }: WorkProps) {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const { activeIndex, isOpen, getItemProps, getTriggerProps, getPanelProps } =
+    useExpandableList();
   const timelineRef = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({
@@ -67,11 +69,10 @@ export function Work({ work }: WorkProps) {
                 </motion.div>
 
                 <motion.div
-                  onMouseEnter={() => setHoveredIndex(i)}
-                  onMouseLeave={() => setHoveredIndex(null)}
+                  {...getItemProps(i)}
                   animate={{
                     opacity:
-                      hoveredIndex === null || hoveredIndex === i ? 1 : 0.3,
+                      activeIndex === null || activeIndex === i ? 1 : 0.3,
                   }}
                   transition={{ duration: 0.3 }}
                   className="group border-t border-border py-8 sm:py-10"
@@ -79,7 +80,12 @@ export function Work({ work }: WorkProps) {
                   <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-start">
                     <div className="flex-1">
                       <h3 className="text-lg font-medium sm:text-xl">
-                        {entry.role}
+                        <button
+                          {...getTriggerProps(i)}
+                          className="text-left outline-none focus-visible:underline focus-visible:underline-offset-4"
+                        >
+                          {entry.role}
+                        </button>
                       </h3>
                       <p className="mt-1 text-sm text-foreground/60">
                         {entry.company}
@@ -94,38 +100,32 @@ export function Work({ work }: WorkProps) {
                     </div>
                   </div>
 
-                  <AnimatePresence initial={false}>
-                    {hoveredIndex === i && (
-                      <motion.div
-                        initial={{ opacity: 0, clipPath: "inset(0 0 100% 0)" }}
-                        animate={{ opacity: 1, clipPath: "inset(0 0 0% 0)" }}
-                        exit={{ opacity: 0, clipPath: "inset(0 0 100% 0)" }}
-                        transition={{ duration: 0.3, ease: [0.25, 0.4, 0.25, 1] }}
-                      >
-                        <p className="mt-4 max-w-2xl text-sm leading-relaxed text-foreground/60">
-                          {entry.description}
-                        </p>
+                  {/* Always rendered (indexable); collapsed until hover, tap, or keyboard focus. */}
+                  <Collapse {...getPanelProps(i)}>
+                    <p className="mt-4 max-w-2xl text-sm leading-relaxed text-foreground/60">
+                      {entry.description}
+                    </p>
 
-                        {entry.highlights && entry.highlights.length > 0 && (
-                          <ul className="mt-4 max-w-2xl space-y-2 border-l border-foreground/10 pl-4">
-                            {entry.highlights.map((point, j) => (
-                              <motion.li
-                                key={j}
-                                custom={j}
-                                initial="hidden"
-                                animate="visible"
-                                variants={bulletVariants}
-                                className="flex items-start gap-3 text-sm leading-relaxed text-foreground/50"
-                              >
-                                <span className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-foreground/30" />
-                                <span>{point}</span>
-                              </motion.li>
-                            ))}
-                          </ul>
-                        )}
-                      </motion.div>
+                    {entry.highlights && entry.highlights.length > 0 && (
+                      <motion.ul
+                        initial="hidden"
+                        animate={isOpen(i) ? "visible" : "hidden"}
+                        className="mt-4 max-w-2xl space-y-2 border-l border-foreground/10 pl-4"
+                      >
+                        {entry.highlights.map((point, j) => (
+                          <motion.li
+                            key={j}
+                            custom={j}
+                            variants={bulletVariants}
+                            className="flex items-start gap-3 text-sm leading-relaxed text-foreground/50"
+                          >
+                            <span className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-foreground/30" />
+                            <span>{point}</span>
+                          </motion.li>
+                        ))}
+                      </motion.ul>
                     )}
-                  </AnimatePresence>
+                  </Collapse>
                 </motion.div>
               </div>
             </ScrollReveal>

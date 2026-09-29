@@ -21,9 +21,11 @@ import {
 import { useRef, useState, useEffect, useCallback } from "react";
 import { Caveat } from "next/font/google";
 
+// Only used by the transient "Drag me!" hint, so keep it off the critical path.
 const caveat = Caveat({
   subsets: ["latin"],
   weight: ["400"],
+  preload: false,
 });
 
 const DOCK_ITEMS = [

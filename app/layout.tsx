@@ -7,6 +7,13 @@ import dynamic from "next/dynamic";
 import { GrainOverlay } from "@/components/grain-overlay";
 import { ScrollProgress } from "@/components/scroll-progress";
 import { PreloaderProvider } from "@/components/preloader";
+import {
+  SITE_DESCRIPTION,
+  SITE_NAME,
+  SITE_TITLE,
+  SITE_URL,
+  TWITTER_HANDLE,
+} from "@/lib/site";
 
 const CustomCursor = dynamic(() =>
   import("@/components/custom-cursor").then((m) => m.CustomCursor)
@@ -28,25 +35,25 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+// OG/Twitter title + description are omitted on purpose: Next inherits them from the root fields.
 export const metadata: Metadata = {
-  metadataBase: new URL("https://adityasharmapro.vercel.app"),
-  title: "Aditya Sharma",
-  description:
-    "Software Engineer building scalable systems with TypeScript and GoLang. Open source contributor to Kubernetes. Based in India.",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: SITE_TITLE,
+    template: `%s | ${SITE_NAME}`,
+  },
+  description: SITE_DESCRIPTION,
+  authors: [{ name: SITE_NAME, url: SITE_URL }],
   openGraph: {
-    title: "Aditya Sharma",
-    description:
-      "Software Engineer building scalable systems with TypeScript and GoLang. Open source contributor to Kubernetes.",
-    url: "https://adityasharmapro.vercel.app",
-    siteName: "Aditya Sharma",
+    url: "/",
+    siteName: SITE_NAME,
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Aditya Sharma",
-    description:
-      "Software Engineer building scalable systems with TypeScript and GoLang.",
+    site: TWITTER_HANDLE,
+    creator: TWITTER_HANDLE,
   },
   robots: {
     index: true,
@@ -76,34 +83,6 @@ export default function RootLayout({
         <link rel="preconnect" href="https://abs.twimg.com" />
         <link rel="dns-prefetch" href="https://pbs.twimg.com" />
         <link rel="dns-prefetch" href="https://abs.twimg.com" />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Person",
-              name: "Aditya Sharma",
-              url: "https://adityasharmapro.vercel.app",
-              jobTitle: "Software Engineer",
-              description:
-                "Software Engineer building scalable systems with TypeScript and GoLang. Open source contributor to Kubernetes.",
-              sameAs: [
-                "https://dub.sh/adityagithub",
-                "https://dub.sh/adityalinkedin",
-                "https://dub.sh/adityax",
-              ],
-              knowsAbout: [
-                "TypeScript",
-                "GoLang",
-                "Next.js",
-                "Kubernetes",
-                "System Design",
-                "PostgreSQL",
-                "Cloudflare",
-              ],
-            }),
-          }}
-        />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased bg-background text-foreground`}
